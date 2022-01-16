@@ -6,7 +6,6 @@ export default function Home() {
       <Head>
         <title>Pessoal Administradora</title>
       </Head>
-
       <h1>Lets Build Pessoal Administradora</h1>
     </div>
   );
