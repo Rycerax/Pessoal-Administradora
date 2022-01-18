@@ -58,13 +58,23 @@ export default function Home() {
           <div className={classes.home_top_left_options}>
             <div
               className={classes.home_top_left_options_option}
-              onClick={() => console.log(code)}
+              onClick={() =>
+                window.scrollTo({
+                  top: window.innerHeight,
+                  behavior: "smooth",
+                })
+              }
             >
               Serviços
             </div>
             <div
               className={classes.home_top_left_options_option}
-              onClick={() => console.log(code)}
+              onClick={() =>
+                window.scrollTo({
+                  top: document.body.scrollHeight,
+                  behavior: "smooth",
+                })
+              }
             >
               Sobre Nós
             </div>
@@ -78,11 +88,13 @@ export default function Home() {
                 window.open("https://wa.me/message/PNBOUA7VERLPG1", "_blank");
               }}
             >
-              {wp ? (
-                <Image src={"/whatsapp_mod-01.svg"} width={75} height={75} />
-              ) : (
-                <Image src={"/whatsapp_mod-01.svg"} width={50} height={50} />
-              )}
+              <Image
+                className={classes.home_top_left_buttons_button_image}
+                src={"/sm_icons_wpp.svg"}
+                width={35}
+                height={35}
+                alt="Whatsapp"
+              />
             </div>
             <div
               className={classes.home_top_left_buttons_button}
@@ -95,14 +107,26 @@ export default function Home() {
                 );
               }}
             >
-              {fb ? (
-                <Image src={"/facebook_mod-02.svg"} width={70} height={70} />
-              ) : (
-                <Image src={"/facebook_mod-02.svg"} width={45} height={45} />
-              )}
+              <Image
+                className={classes.home_top_left_buttons_button_image}
+                src={"/sm_icons_fb.svg"}
+                width={35}
+                height={35}
+                alt="Facebook"
+              />
             </div>
-            <div className={classes.home_top_left_buttons_button}>
-              <Image src={"/instagram.svg"} width={25} height={25} />
+            <div
+              className={classes.home_top_left_buttons_button}
+              onMouseEnter={() => setIt(true)}
+              onMouseLeave={() => setIt(false)}
+            >
+              <Image
+                className={classes.home_top_left_buttons_button_image}
+                src={"/sm_icons_ig.svg"}
+                width={35}
+                height={35}
+                alt="Instagram"
+              />
             </div>
           </div>
         </div>
@@ -112,12 +136,12 @@ export default function Home() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
-            fill="none"
+            fill="cornflowerblue"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            width={75}
-            height={75}
-            color="#fff"
+            width={50}
+            height={50}
+            color="#1f1f1f"
           >
             <path
               stroke-linecap="round"
@@ -127,19 +151,19 @@ export default function Home() {
             />
           </svg>
           <h1 className={classes.home_mid_service_label}>
-            ADMINISTRAÇÃO PROFISSIONAL DE CONDOMÍNIOS
+            GESTÃO PROFISSIONAL DE CONDOMÍNIOS
           </h1>
         </div>
         <div className={classes.home_mid_service}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
-            fill="none"
+            fill="cornflowerblue"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            width={75}
-            height={75}
-            color="#fff"
+            width={50}
+            height={50}
+            color="#1f1f1f"
           >
             <path
               stroke-linecap="round"
@@ -156,12 +180,12 @@ export default function Home() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
-            fill="none"
+            fill="cornflowerblue"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            width={75}
-            height={75}
-            color="#fff"
+            width={50}
+            height={50}
+            color="#1f1f1f"
           >
             <path
               stroke-linecap="round"
@@ -178,12 +202,12 @@ export default function Home() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
-            fill="none"
+            fill="cornflowerblue"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            width={75}
-            height={75}
-            color="#fff"
+            width={50}
+            height={50}
+            color="#1f1f1f"
           >
             <path
               stroke-linecap="round"
@@ -200,12 +224,12 @@ export default function Home() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
-            fill="none"
+            fill="cornflowerblue"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            width={70}
-            height={70}
-            color="#fff"
+            width={50}
+            height={50}
+            color="#1f1f1f"
           >
             <path
               stroke-linecap="round"
@@ -215,11 +239,13 @@ export default function Home() {
             />
           </svg>
           <h1 className={classes.home_mid_service_label}>
-            ACESSORIA JURÍDICA PARA CONOMÍNIOS
+            CONSULTORIA E ASSESSORIA JURÍDICA
           </h1>
         </div>
       </div>
-      <div className={classes.home_bottom}></div>
+      <div className={classes.home_bottom}>
+        <h1>Sobre nós</h1>
+      </div>
     </div>
   );
 }
