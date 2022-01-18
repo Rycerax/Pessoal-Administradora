@@ -13,13 +13,14 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 9;
 }
 
 .home_top_left {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: #070707;
+  background: #1f1f1f;
   width: 500px;
 }
 
@@ -37,8 +38,16 @@
   justify-content: center;
 }
 
+.home_top_left_access_label {
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  margin-left: 55px;
+  transition: all ease 0.3s;
+}
+
 .home_top_left_access_inputarea {
-  box-shadow: 0px 0px 25px;
+  box-shadow: 0px 0px 20px;
 }
 
 .home_top_left_access_inputarea_input {
@@ -57,7 +66,7 @@
 }
 
 .home_top_left_access_button {
-  color: #fff;
+  color: #f2f4ff;
   padding: 10px 15px;
   text-align: center;
   width: 100px;
@@ -65,7 +74,7 @@
   border-radius: 4px;
   background: cornflowerblue;
   cursor: pointer;
-  box-shadow: 0px 0px 25px #000;
+  box-shadow: 0px 0px 20px #000;
   transition: all ease 0.3s;
   font-family: "Outfit", sans-serif;
   font-size: 16px;
@@ -75,23 +84,81 @@
   filter: brightness(1.25);
 }
 
+.home_top_left_code {
+  padding: 10px 55px;
+  font-family: "Outfit", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.home_top_left_options {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.home_top_left_options_option {
+  color: #f2f4ff;
+  padding: 10px 15px;
+  text-align: center;
+  width: 300px;
+  margin-top: 15px;
+  border-radius: 4px;
+  background: cornflowerblue;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px #000;
+  transition: all ease 0.3s;
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+}
+
+.home_top_left_options_option:hover {
+  filter: brightness(1.25);
+}
+
 .home_top_left_buttons {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  flex: 1;
   width: 100%;
 }
 
 .home_top_left_buttons_button {
   cursor: pointer;
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   align-items: center;
   justify-content: center;
   display: flex;
   border-radius: 50%;
-  background: #fff;
   margin: 15px 25px;
-  box-shadow: 0px 0px 25px;
+}
+
+.home_mid {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background: #1f1f1f;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.home_mid_service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 25%;
+}
+
+.home_mid_service_label {
+  color: #fff;
+  font-family: "Outfit", sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+  margin-top: 40px;
 }

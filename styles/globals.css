@@ -8,8 +8,14 @@ body {
 }
 
 a {
-  color: inherit;
+  color: cornflowerblue;
   text-decoration: none;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+a:hover {
+  filter: brightness(1.25);
 }
 
 * {
