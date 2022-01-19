@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: center;
   flex: 1;
-  color: aliceblue;
+  color: #f2f4ff;
 }
 
 .home_top_left_access {
@@ -141,7 +141,7 @@
   padding: 25px;
   display: flex;
   width: 100%;
-  background: #f8f8f8;
+  background: #f2f4ff;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;

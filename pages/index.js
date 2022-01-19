@@ -4,11 +4,9 @@ import { useState } from "react/cjs/react.development";
 import classes from "../styles/Home.module.css";
 
 export default function Home() {
-  const [wp, setWp] = useState(false);
-  const [fb, setFb] = useState(false);
-  const [it, setIt] = useState(false);
   const [lb, setLb] = useState("#1f1f1f");
   const [code, setCode] = useState("");
+
   return (
     <div className={classes.home}>
       <Head>
@@ -82,8 +80,6 @@ export default function Home() {
           <div className={classes.home_top_left_buttons}>
             <div
               className={classes.home_top_left_buttons_button}
-              onMouseEnter={() => setWp(true)}
-              onMouseLeave={() => setWp(false)}
               onClick={() => {
                 window.open("https://wa.me/message/PNBOUA7VERLPG1", "_blank");
               }}
@@ -98,8 +94,6 @@ export default function Home() {
             </div>
             <div
               className={classes.home_top_left_buttons_button}
-              onMouseEnter={() => setFb(true)}
-              onMouseLeave={() => setFb(false)}
               onClick={() => {
                 window.open(
                   "https://www.facebook.com/peregrinacapeloconsultoriajuridica",
@@ -115,11 +109,7 @@ export default function Home() {
                 alt="Facebook"
               />
             </div>
-            <div
-              className={classes.home_top_left_buttons_button}
-              onMouseEnter={() => setIt(true)}
-              onMouseLeave={() => setIt(false)}
-            >
+            <div className={classes.home_top_left_buttons_button}>
               <Image
                 className={classes.home_top_left_buttons_button_image}
                 src={"/sm_icons_ig.svg"}
