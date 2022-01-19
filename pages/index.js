@@ -13,6 +13,7 @@ export default function Home() {
         <title>Pessoal Administradora</title>
       </Head>
       <div className={classes.home_top}>
+        <div className={classes.home_top_image} />
         <div className={classes.home_top_left}>
           <div className={classes.home_top_left_logo}>
             <h1>Logo</h1>
@@ -63,7 +64,9 @@ export default function Home() {
                 })
               }
             >
-              Serviços
+              <p className={classes.home_top_left_options_option_label}>
+                Serviços
+              </p>
             </div>
             <div
               className={classes.home_top_left_options_option}
@@ -74,7 +77,9 @@ export default function Home() {
                 })
               }
             >
-              Sobre Nós
+              <p className={classes.home_top_left_options_option_label}>
+                Sobre Nós
+              </p>
             </div>
           </div>
           <div className={classes.home_top_left_buttons}>
@@ -86,7 +91,7 @@ export default function Home() {
             >
               <Image
                 className={classes.home_top_left_buttons_button_image}
-                src={"/sm_icons_wpp.svg"}
+                src={"/sm_icons_blk-03.svg"}
                 width={35}
                 height={35}
                 alt="Whatsapp"
@@ -103,7 +108,7 @@ export default function Home() {
             >
               <Image
                 className={classes.home_top_left_buttons_button_image}
-                src={"/sm_icons_fb.svg"}
+                src={"/sm_icons_blk-02.svg"}
                 width={35}
                 height={35}
                 alt="Facebook"
@@ -112,7 +117,7 @@ export default function Home() {
             <div className={classes.home_top_left_buttons_button}>
               <Image
                 className={classes.home_top_left_buttons_button_image}
-                src={"/sm_icons_ig.svg"}
+                src={"/sm_icons_blk-01.svg"}
                 width={35}
                 height={35}
                 alt="Instagram"
@@ -235,6 +240,11 @@ export default function Home() {
       </div>
       <div className={classes.home_bottom}>
         <h1>Sobre nós</h1>
+      </div>
+      <div className={classes.home_footer}>
+        <p>© 2022 Pessoal Administradora. Todos os direitos reservados.</p>
+        <div className={classes.home_footer_img}>Logo</div>
+        <p>Designed by @Kolski & @rafaelcapeloo</p>
       </div>
     </div>
   );
