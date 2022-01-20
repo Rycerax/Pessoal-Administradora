@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import { useState } from "react";
 import classes from "../styles/Home.module.css";
 
@@ -103,7 +104,7 @@ export default function Home() {
                 window.open("https://wa.me/message/PNBOUA7VERLPG1", "_blank");
               }}
             >
-              <img
+              <Image
                 className={classes.home_top_left_buttons_button_image}
                 src={"/sm_icons_blk-03.svg"}
                 width={35}
@@ -120,7 +121,7 @@ export default function Home() {
                 );
               }}
             >
-              <img
+              <Image
                 className={classes.home_top_left_buttons_button_image}
                 src={"/sm_icons_blk-02.svg"}
                 width={35}
@@ -129,7 +130,7 @@ export default function Home() {
               />
             </div>
             <div className={classes.home_top_left_buttons_button}>
-              <img
+              <Image
                 className={classes.home_top_left_buttons_button_image}
                 src={"/sm_icons_blk-01.svg"}
                 width={35}
