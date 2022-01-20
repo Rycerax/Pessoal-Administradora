@@ -9,14 +9,14 @@ body {
 }
 
 a {
-  color: cornflowerblue;
+  color: #195fcd;
   text-decoration: none;
   cursor: pointer;
   transition: all ease 0.3s;
 }
 
 a:hover {
-  filter: brightness(1.25);
+  filter: brightness(0.5);
 }
 
 * {
@@ -32,9 +32,9 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track-piece {
-  background-color: #070707;
+  background-color: #1f1f1f;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-  background-color: #f2f4ff;
+  background-color: #195fcd;
 }

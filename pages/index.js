@@ -1,10 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
 import { useState } from "react";
 import classes from "../styles/Home.module.css";
 
 export default function Home() {
-  const [lb, setLb] = useState("#1f1f1f");
+  const [lb, setLb] = useState("#fff");
   const [code, setCode] = useState("");
 
   return (
@@ -32,8 +31,8 @@ export default function Home() {
                 placeholder="Código do condomínio, ex. MDC"
                 maxLength={4}
                 onChange={(e) => {
-                  if (e.target.value === "") setLb("#1f1f1f");
-                  else setLb("#fff");
+                  if (e.target.value === "") setLb("#fff");
+                  else setLb("#1f1f1f");
                   setCode(e.target.value);
                 }}
               />
@@ -47,6 +46,7 @@ export default function Home() {
           </div>
           <div className={classes.home_top_left_code}>
             <a
+              className={classes.home_top_left_code_link}
               onClick={() => {
                 window.open("https://wa.me/message/PNBOUA7VERLPG1", "_blank");
               }}
@@ -89,7 +89,7 @@ export default function Home() {
                 window.open("https://wa.me/message/PNBOUA7VERLPG1", "_blank");
               }}
             >
-              <Image
+              <img
                 className={classes.home_top_left_buttons_button_image}
                 src={"/sm_icons_blk-03.svg"}
                 width={35}
@@ -106,7 +106,7 @@ export default function Home() {
                 );
               }}
             >
-              <Image
+              <img
                 className={classes.home_top_left_buttons_button_image}
                 src={"/sm_icons_blk-02.svg"}
                 width={35}
@@ -115,7 +115,7 @@ export default function Home() {
               />
             </div>
             <div className={classes.home_top_left_buttons_button}>
-              <Image
+              <img
                 className={classes.home_top_left_buttons_button_image}
                 src={"/sm_icons_blk-01.svg"}
                 width={35}
