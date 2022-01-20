@@ -28,7 +28,7 @@ export default function Home() {
               <input
                 type="text"
                 className={classes.home_top_left_access_inputarea_input}
-                placeholder="Código do condomínio, ex. MDC"
+                placeholder="Código do condomínio"
                 maxLength={4}
                 onChange={(e) => {
                   if (e.target.value === "") setLb("#fff");
@@ -41,7 +41,21 @@ export default function Home() {
               className={classes.home_top_left_access_button}
               onClick={() => console.log(code)}
             >
-              Acessar
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                enable-background="new 0 0 24 24"
+                width={27}
+                height={27}
+                viewBox="0 0 24 24"
+                fill="#195fcd"
+              >
+                <g>
+                  <rect fill="none" height="24" width="24" />
+                </g>
+                <g>
+                  <path d="M11,7L9.6,8.4l2.6,2.6H2v2h10.2l-2.6,2.6L11,17l5-5L11,7z M20,19h-8v2h8c1.1,0,2-0.9,2-2V5c0-1.1-0.9-2-2-2h-8v2h8V19z" />
+                </g>
+              </svg>
             </div>
           </div>
           <div className={classes.home_top_left_code}>
@@ -130,12 +144,11 @@ export default function Home() {
         <div className={classes.home_mid_service}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="cornflowerblue"
+            fill="#195fcd"
             viewBox="0 0 24 24"
             stroke="currentColor"
             width={50}
             height={50}
-            color="#1f1f1f"
           >
             <path
               strokeLinecap="round"
@@ -145,18 +158,17 @@ export default function Home() {
             />
           </svg>
           <h1 className={classes.home_mid_service_label}>
-            GESTÃO PROFISSIONAL DE CONDOMÍNIOS
+            Gestão Profissional de Condomínios
           </h1>
         </div>
         <div className={classes.home_mid_service}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="cornflowerblue"
+            fill="#195fcd"
             viewBox="0 0 24 24"
             stroke="currentColor"
             width={50}
             height={50}
-            color="#1f1f1f"
           >
             <path
               strokeLinecap="round"
@@ -166,18 +178,17 @@ export default function Home() {
             />
           </svg>
           <h1 className={classes.home_mid_service_label}>
-            DISPONIBILIZAÇÃO DE DOCUMENTOS IMPORTANTES
+            Disponibilização de Documentos
           </h1>
         </div>
         <div className={classes.home_mid_service}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="cornflowerblue"
+            fill="#195fcd"
             viewBox="0 0 24 24"
             stroke="currentColor"
             width={50}
             height={50}
-            color="#1f1f1f"
           >
             <path
               strokeLinecap="round"
@@ -187,18 +198,17 @@ export default function Home() {
             />
           </svg>
           <h1 className={classes.home_mid_service_label}>
-            RESERVA DE ÁREAS COMUNS
+            Reserva de Áreas Comuns
           </h1>
         </div>
         <div className={classes.home_mid_service}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="cornflowerblue"
+            fill="#195fcd"
             viewBox="0 0 24 24"
             stroke="currentColor"
             width={50}
             height={50}
-            color="#1f1f1f"
           >
             <path
               strokeLinecap="round"
@@ -208,18 +218,17 @@ export default function Home() {
             />
           </svg>
           <h1 className={classes.home_mid_service_label}>
-            MURAL DE NOTÍCIAS DIGITAL
+            Mural de Notícias Digital
           </h1>
         </div>
         <div className={classes.home_mid_service}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="cornflowerblue"
+            fill="#195fcd"
             viewBox="0 0 24 24"
             stroke="currentColor"
             width={50}
             height={50}
-            color="#1f1f1f"
           >
             <path
               strokeLinecap="round"
@@ -229,7 +238,7 @@ export default function Home() {
             />
           </svg>
           <h1 className={classes.home_mid_service_label}>
-            CONSULTORIA E ASSESSORIA JURÍDICA
+            Consultoria e Assessoria Jurídica
           </h1>
         </div>
       </div>
