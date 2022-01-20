@@ -130,7 +130,6 @@ export default function Home() {
         <div className={classes.home_mid_service}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
             fill="cornflowerblue"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -139,9 +138,9 @@ export default function Home() {
             color="#1f1f1f"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
             />
           </svg>
@@ -152,7 +151,6 @@ export default function Home() {
         <div className={classes.home_mid_service}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
             fill="cornflowerblue"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -161,9 +159,9 @@ export default function Home() {
             color="#1f1f1f"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
             />
           </svg>
@@ -174,7 +172,6 @@ export default function Home() {
         <div className={classes.home_mid_service}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
             fill="cornflowerblue"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -183,9 +180,9 @@ export default function Home() {
             color="#1f1f1f"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
             />
           </svg>
@@ -196,7 +193,6 @@ export default function Home() {
         <div className={classes.home_mid_service}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
             fill="cornflowerblue"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -205,9 +201,9 @@ export default function Home() {
             color="#1f1f1f"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
             />
           </svg>
@@ -218,7 +214,6 @@ export default function Home() {
         <div className={classes.home_mid_service}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
             fill="cornflowerblue"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -227,9 +222,9 @@ export default function Home() {
             color="#1f1f1f"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
             />
           </svg>
