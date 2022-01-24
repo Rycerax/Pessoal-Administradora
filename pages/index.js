@@ -16,7 +16,7 @@ export default function Home() {
         <div className={classes.home_top_image} />
         <div className={classes.home_top_left}>
           <div className={classes.home_top_left_logo}>
-            <h1>Logo</h1>
+            <Image src={"/logo.png"} width={200} height={86} />
           </div>
           <h3
             className={classes.home_top_left_access_label}
