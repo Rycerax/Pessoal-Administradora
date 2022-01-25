@@ -16,7 +16,7 @@ export default function Home() {
         <div className={classes.home_top_image} />
         <div className={classes.home_top_left}>
           <div className={classes.home_top_left_logo}>
-            <Image src={"/logo.png"} width={200} height={86} />
+            <Image src={"/logo.png"} layout="fill" objectFit="contain" />
           </div>
           <h3
             className={classes.home_top_left_access_label}
@@ -104,13 +104,19 @@ export default function Home() {
                 window.open("https://wa.me/message/PNBOUA7VERLPG1", "_blank");
               }}
             >
-              <Image
-                className={classes.home_top_left_buttons_button_image}
-                src={"/sm_icons_blk-03.svg"}
+              <svg
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 100"
                 width={35}
                 height={35}
-                alt="Whatsapp"
-              />
+                fill="#195fcd"
+              >
+                <path d="M50,20.68A29.32,29.32,0,1,0,79.32,50,29.32,29.32,0,0,0,50,20.68Zm0,53.59A24.28,24.28,0,1,1,74.27,50,24.27,24.27,0,0,1,50,74.27Z" />
+                <path d="M50.55,60.43a38.91,38.91,0,0,0,3.69,1.36,8.79,8.79,0,0,0,4.09.26c1.24-.19,3.83-1.57,4.37-3.08a5.47,5.47,0,0,0,.38-3.09c-.16-.27-.59-.43-1.24-.75S58,53.23,57.4,53s-1-.33-1.45.32-1.68,2.11-2.06,2.54-.75.49-1.4.16a17.5,17.5,0,0,1-5.22-3.21,19.41,19.41,0,0,1-3.6-4.5c-.38-.64,0-1,.28-1.32s.65-.76,1-1.14a4.23,4.23,0,0,0,.66-1.07,1.19,1.19,0,0,0-.06-1.14c-.16-.32-1.46-3.52-2-4.81s-1.06-1.1-1.45-1.12l-1.25,0a2.39,2.39,0,0,0-1.73.81,7.3,7.3,0,0,0-2.27,5.41c0,3.19,2.33,6.28,2.65,6.71S44,57.62,50.55,60.43Z" />
+                <polygon points="31.56 71.61 25.72 64.52 25.72 79.32 50 79.32 41.13 76.17 31.56 71.61" />
+              </svg>
             </div>
             <div
               className={classes.home_top_left_buttons_button}
@@ -121,22 +127,31 @@ export default function Home() {
                 );
               }}
             >
-              <Image
-                className={classes.home_top_left_buttons_button_image}
-                src={"/sm_icons_blk-02.svg"}
+              <svg
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 100"
                 width={35}
                 height={35}
-                alt="Facebook"
-              />
+                fill="#195fcd"
+              >
+                <path d="M54.17,75.07H44.25V50.35H37.5v-8h6.75V36.58c0-6.78,3-11.65,12.88-11.65,2.09,0,5.37.42,5.37.42v7.48H59.05c-3.51,0-4.88,1.06-4.88,4v5.46h8.2l-.73,8H54.17Z" />
+              </svg>
             </div>
             <div className={classes.home_top_left_buttons_button}>
-              <Image
-                className={classes.home_top_left_buttons_button_image}
-                src={"/sm_icons_blk-01.svg"}
+              <svg
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 100"
                 width={35}
                 height={35}
-                alt="Instagram"
-              />
+                fill="#195fcd"
+              >
+                <path d="M62.52,20.73h-25A16.75,16.75,0,0,0,20.73,37.48v25A16.75,16.75,0,0,0,37.48,79.27h25A16.75,16.75,0,0,0,79.27,62.52v-25A16.75,16.75,0,0,0,62.52,20.73ZM74,60.94a13,13,0,0,1-13,13H39.06a13,13,0,0,1-13-13V39.06a13,13,0,0,1,13-13H60.94a13,13,0,0,1,13,13Z" />
+                <path d="M50,35A15,15,0,1,0,65,50,15,15,0,0,0,50,35Zm0,24.84A9.81,9.81,0,1,1,59.81,50,9.81,9.81,0,0,1,50,59.81Z" />
+              </svg>
             </div>
           </div>
         </div>
