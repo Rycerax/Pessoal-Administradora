@@ -12,6 +12,7 @@ export default function Condominium() {
 
   return (
     <div className={classes.condominium}>
+      <div className={classes.condominium_img} />
       <div className={classes.condominium_main}>
         <div className={classes.condominium_main_menu}>
           <div
@@ -21,9 +22,9 @@ export default function Condominium() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              height={35}
+              height={30}
               viewBox="0 0 24 24"
-              width={35}
+              width={30}
               fill={dccolor}
             >
               <path d="M0 0h24v24H0V0z" fill="none" />
@@ -34,13 +35,13 @@ export default function Condominium() {
             className={classes.condominium_main_menu_option}
             onMouseEnter={() => setDtColor("#195fcd")}
             onMouseLeave={() => setDtColor("#fff")}
-            style={{ marginLeft: 125, marginRight: 125 }}
+            style={{ marginLeft: 175, marginRight: 175 }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              height={35}
+              height={30}
               viewBox="0 0 24 24"
-              width={35}
+              width={30}
               fill={dtcolor}
             >
               <path d="M0 0h24v24H0V0z" fill="none" />
@@ -54,9 +55,9 @@ export default function Condominium() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              height={35}
+              height={30}
               viewBox="0 0 24 24"
-              width={35}
+              width={30}
               fill={pccolor}
             >
               <path d="M0 0h24v24H0V0z" fill="none" />

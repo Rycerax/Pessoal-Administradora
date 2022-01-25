@@ -2,7 +2,15 @@
   display: flex;
   width: 100vw;
   height: 100vh;
-  justify-content: center;
+}
+
+.condominium_img {
+  display: flex;
+  flex: 1;
+  background-image: url("/cond.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .condominium_main {
@@ -10,26 +18,24 @@
   flex-direction: column;
   width: 750px;
   height: 100vh;
+  box-shadow: 0 1px 5px 1px rgb(64 60 67 / 16%);
 }
 
 .condominium_main_menu {
   display: flex;
   width: 100%;
-  height: 75px;
-  border-radius: 7px;
-  margin-top: 20px;
+  height: 60px;
   background: #195fcd;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 1px 5px 1px rgb(64 60 67 / 16%);
 }
 
 .condominium_main_menu_option {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 55px;
-  height: 55px;
+  width: 45px;
+  height: 45px;
   border-radius: 7px;
   transition: all ease 0.3s;
   cursor: pointer;
@@ -44,8 +50,6 @@
   flex: 1;
   margin-top: 20px;
   margin-bottom: 20px;
-  border-radius: 7px;
-  box-shadow: 0 1px 5px 1px rgb(64 60 67 / 16%);
 }
 
 .condominium_main_parceiros {
