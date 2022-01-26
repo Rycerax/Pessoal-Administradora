@@ -32,7 +32,7 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track-piece {
-  background-color: #1f1f1f;
+  background-color: #fff;
 }
 
 ::-webkit-scrollbar-thumb:vertical {

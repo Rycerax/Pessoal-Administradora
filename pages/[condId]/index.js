@@ -1,14 +1,11 @@
 import Image from "next/image";
 import { useState } from "react";
+import Item from "../../components/Item";
 import classes from "../../styles/Condominium.module.css";
 
 export default function Condominium() {
   const [dc, setDc] = useState(true);
-  const [dccolor, setDcColor] = useState("#fff");
   const [dt, setDt] = useState(false);
-  const [dtcolor, setDtColor] = useState("#fff");
-  const [pc, setPc] = useState(false);
-  const [pccolor, setPcColor] = useState("#fff");
 
   return (
     <div className={classes.condominium}>
@@ -17,55 +14,75 @@ export default function Condominium() {
         <div className={classes.condominium_main_menu}>
           <div
             className={classes.condominium_main_menu_option}
-            onMouseEnter={() => setDcColor("#195fcd")}
-            onMouseLeave={() => setDcColor("#fff")}
+            onClick={() => {
+              setDt(false);
+              setDc(true);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height={30}
               viewBox="0 0 24 24"
               width={30}
-              fill={dccolor}
+              fill="#fff"
             >
               <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M14 2H4v20h16V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+              <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z" />
             </svg>
+            <div className={classes.condominium_main_menu_option_label}>
+              <p
+                className={
+                  dc
+                    ? classes.condominium_main_menu_option_p_active
+                    : classes.condominium_main_menu_option_p
+                }
+              >
+                Documentos
+              </p>
+            </div>
           </div>
           <div
             className={classes.condominium_main_menu_option}
-            onMouseEnter={() => setDtColor("#195fcd")}
-            onMouseLeave={() => setDtColor("#fff")}
-            style={{ marginLeft: 175, marginRight: 175 }}
+            onClick={() => {
+              setDt(true);
+              setDc(false);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height={30}
               viewBox="0 0 24 24"
               width={30}
-              fill={dtcolor}
+              fill="#fff"
             >
               <path d="M0 0h24v24H0V0z" fill="none" />
               <path d="M16.53 11.06L15.47 10l-4.88 4.88-2.12-2.12-1.06 1.06L10.59 17l5.94-5.94zM21 3h-3V1h-2v2H8V1H6v2H3v18h18V3zm-2 16H5V8h14v11z" />
             </svg>
-          </div>
-          <div
-            className={classes.condominium_main_menu_option}
-            onMouseEnter={() => setPcColor("#195fcd")}
-            onMouseLeave={() => setPcColor("#fff")}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height={30}
-              viewBox="0 0 24 24"
-              width={30}
-              fill={pccolor}
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12zm-2-9H8v2h11V8zm0 4H8v2h11v-2zM7 8H5v2h2V8zm0 4H5v2h2v-2z" />
-            </svg>
+            <div className={classes.condominium_main_menu_option_label}>
+              <p
+                className={
+                  dt
+                    ? classes.condominium_main_menu_option_p_active
+                    : classes.condominium_main_menu_option_p
+                }
+              >
+                Reservas
+              </p>
+            </div>
           </div>
         </div>
-        <div className={classes.condominium_main_content}></div>
+        <div className={classes.condominium_main_content}>
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+          <Item />
+        </div>
         <div className={classes.condominium_main_parceiros}></div>
       </div>
     </div>

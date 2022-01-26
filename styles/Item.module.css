@@ -1,0 +1,35 @@
+.item {
+  display: flex;
+  width: 100%;
+  min-height: 75px;
+  border-radius: 7px;
+  margin: 10px 0px;
+  box-shadow: 0 1px 5px 1px rgb(64 60 67 / 16%);
+}
+
+.item_icon {
+  display: flex;
+  width: 75px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.item_desc {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-family: "Readex Pro", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.item_date {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+  font-family: "Readex Pro", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+}
