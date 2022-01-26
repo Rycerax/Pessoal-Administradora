@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import classes from "../styles/Home.module.css";
+import { analytics } from "../firebase";
 
 export default function Home() {
   const [lb, setLb] = useState("#fff");
