@@ -3,13 +3,13 @@ import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
+  apiKey: "AIzaSyBeHx_Sddx5xa4twK1dgIdwoisAJD_jaTE",
+  authDomain: "pessoal-administradora-aa9a4.firebaseapp.com",
   projectId: "pessoal-administradora-aa9a4",
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASUREMENT_ID,
+  storageBucket: "pessoal-administradora-aa9a4.appspot.com",
+  messagingSenderId: "506803529635",
+  appId: "1:506803529635:web:a04721ee71acc8505edc16",
+  measurementId: "G-JPYDZJZ7LH",
 };
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
