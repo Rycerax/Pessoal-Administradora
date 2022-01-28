@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useState } from "react";
 import Item from "../../components/Item";
 import classes from "../../styles/Condominium.module.css";
@@ -72,16 +71,16 @@ export default function Condominium() {
           </div>
         </div>
         <div className={classes.condominium_main_content}>
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+          <Item dc={dc} description="Ata da Assembléia.pdf" date="20/01/2019" />
+          <Item dc={dc} />
+          <Item dc={dc} />
+          <Item dc={dc} />
+          <Item dc={dc} />
+          <Item dc={dc} />
+          <Item dc={dc} />
+          <Item dc={dc} />
+          <Item dc={dc} />
+          <Item dc={dc} />
         </div>
         <div className={classes.condominium_main_parceiros}></div>
       </div>
