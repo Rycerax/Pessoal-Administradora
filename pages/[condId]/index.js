@@ -1,10 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { db } from "../../firebase";
 import Item from "../../components/Item";
 import classes from "../../styles/Condominium.module.css";
 
-export default function Condominium() {
+export async function getServerSideProps(context) {
+  const docRef = doc(db, "Condominiums", context.params.condId);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    const data = {
+      ImageUrl: docSnap.data().ImageUrl,
+      Docs: [],
+      Reservas: [],
+    };
+    const docsSnapshot = await getDocs(
+      collection(db, "Condominiums", context.params.condId, "Docs")
+    );
+    docsSnapshot.forEach((doc) => {
+      data.Docs.push(doc.data());
+    });
+    const reservasSnapshot = await getDocs(
+      collection(db, "Condominiums", context.params.condId, "Reservas")
+    );
+    reservasSnapshot.forEach((res) => {
+      data.Reservas.push(res.data());
+    });
+    return {
+      props: data,
+    };
+  }
+
+  return {
+    notFound: true,
+  };
+}
+
+export default function Condominium(props) {
   const [dc, setDc] = useState(true);
   const [dt, setDt] = useState(false);
+
+  useEffect(() => {
+    console.log(props.Docs);
+  }, []);
 
   return (
     <div className={classes.condominium}>
@@ -71,16 +109,33 @@ export default function Condominium() {
           </div>
         </div>
         <div className={classes.condominium_main_content}>
-          <Item dc={dc} description="Ata da Assembléia.pdf" date="20/01/2019" />
-          <Item dc={dc} />
-          <Item dc={dc} />
-          <Item dc={dc} />
-          <Item dc={dc} />
-          <Item dc={dc} />
-          <Item dc={dc} />
-          <Item dc={dc} />
-          <Item dc={dc} />
-          <Item dc={dc} />
+          {dc ? (
+            !props.Docs.length ? (
+              <p>Nenhum documento disponível :(</p>
+            ) : (
+              props.Docs.map((doc) => (
+                <Item
+                  key={doc.docId}
+                  id={doc.docId}
+                  description={doc.desc}
+                  date={doc.date}
+                  dc={doc.dc}
+                />
+              ))
+            )
+          ) : !props.Reservas.length ? (
+            <p>Nenhuma reserva disponível :(</p>
+          ) : (
+            props.Reservas.map((doc) => (
+              <Item
+                key={doc.docId}
+                id={doc.docId}
+                description={doc.desc}
+                date={doc.date}
+                dc={doc.dc}
+              />
+            ))
+          )}
         </div>
         <div className={classes.condominium_main_parceiros}></div>
       </div>

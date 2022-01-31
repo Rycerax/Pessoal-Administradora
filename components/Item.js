@@ -2,7 +2,7 @@ import classes from "../styles/Item.module.css";
 
 export default function Item(props) {
   return (
-    <div className={classes.item}>
+    <div className={props.dc ? classes.item_dc : classes.item}>
       <div className={classes.item_icon}>
         {props.dc ? (
           <svg

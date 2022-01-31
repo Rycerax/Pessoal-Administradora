@@ -7,6 +7,21 @@
   box-shadow: 0 1px 5px 1px rgb(64 60 67 / 16%);
 }
 
+.item_dc {
+  display: flex;
+  width: 100%;
+  min-height: 75px;
+  border-radius: 7px;
+  margin: 10px 0px;
+  box-shadow: 0 1px 5px 1px rgb(64 60 67 / 16%);
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.item_dc:hover {
+  transform: scale(1.05);
+}
+
 .item_icon {
   display: flex;
   width: 75px;

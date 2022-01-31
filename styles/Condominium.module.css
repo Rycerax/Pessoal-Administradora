@@ -85,6 +85,11 @@
   flex-direction: column;
   overflow-y: scroll;
   border-radius: 7px;
+  align-items: center;
+  font-family: "Readex Pro", sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  color: #2e4da7;
 }
 
 .condominium_main_parceiros {
