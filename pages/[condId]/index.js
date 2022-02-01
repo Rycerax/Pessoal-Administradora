@@ -137,6 +137,57 @@ export default function Condominium(props) {
             ))
           )}
         </div>
+        <div className={classes.condominium_main_reserve}>
+          <div className={classes.condominium_main_reserve_title}>
+            <p>Solicitar Reserva</p>
+          </div>
+          <div className={classes.condominium_main_reserve_inputs}>
+            <div className={classes.condominium_main_reserve_inputarea}>
+              <input
+                type="text"
+                className={classes.condominium_main_reserve_inputarea_input}
+                placeholder="E-mail"
+                maxLength={100}
+                /*onChange={(e) => {
+                  if (e.target.value === "") setLb("#fff");
+                  else setLb("#2E4DA7");
+                  setCode(e.target.value);
+                }}*/
+              />
+            </div>
+            <div className={classes.condominium_main_reserve_inputarea}>
+              <input
+                type="text"
+                className={classes.condominium_main_reserve_inputarea_input}
+                placeholder="Descrição"
+                maxLength={100}
+                /*onChange={(e) => {
+                  if (e.target.value === "") setLb("#fff");
+                  else setLb("#2E4DA7");
+                  setCode(e.target.value);
+                }}*/
+              />
+            </div>
+            <div className={classes.condominium_main_reserve_inputarea}>
+              <input
+                type="text"
+                className={classes.condominium_main_reserve_inputarea_input}
+                placeholder="Data (Ex: 25/02/2001)"
+                maxLength={10}
+                /*onChange={(e) => {
+                  if (e.target.value === "") setLb("#fff");
+                  else setLb("#2E4DA7");
+                  setCode(e.target.value);
+                }}*/
+              />
+            </div>
+          </div>
+          <div className={classes.condominium_main_reserve_button_area}>
+            <div className={classes.condominium_main_reserve_button}>
+              Solicitar
+            </div>
+          </div>
+        </div>
         <div className={classes.condominium_main_parceiros}></div>
       </div>
     </div>
