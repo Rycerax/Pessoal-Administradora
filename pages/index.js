@@ -2,11 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import classes from "../styles/Home.module.css";
+import { useRouter } from "next/router";
 import { analytics } from "../firebase";
 
 export default function Home() {
   const [lb, setLb] = useState("#fff");
   const [code, setCode] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   return (
     <div className={classes.home}>
@@ -26,8 +29,19 @@ export default function Home() {
             Código do condomínio
           </h3>
           <div className={classes.home_top_left_access}>
-            <div className={classes.home_top_left_access_inputarea}>
+            <div
+              className={classes.home_top_left_access_inputarea}
+              style={{
+                borderBottom: loading ? "solid 3px #2e4da7" : "solid 3px #fff",
+              }}
+            >
               <input
+                onKeyUp={(e) => {
+                  if (e.code === "Enter") {
+                    setLoading(true);
+                    router.push(`/cond/${code.toUpperCase()}`);
+                  }
+                }}
                 type="text"
                 className={classes.home_top_left_access_inputarea_input}
                 placeholder="Código do condomínio"
@@ -41,7 +55,10 @@ export default function Home() {
             </div>
             <div
               className={classes.home_top_left_access_button}
-              onClick={() => console.log(code)}
+              onClick={() => {
+                setLoading(true);
+                router.push(`/cond/${code.toUpperCase()}`);
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -181,12 +198,6 @@ export default function Home() {
             </h1>
           </div>
           <div className={classes.home_mid_service}>
-            <Image src={"/pc.svg"} width={50} height={50} alt="Mural" />
-            <h1 className={classes.home_mid_service_label}>
-              Mural de Notícias Digital
-            </h1>
-          </div>
-          <div className={classes.home_mid_service}>
             <Image src={"/bl.svg"} width={50} height={50} alt="Acessoria" />
             <h1 className={classes.home_mid_service_label}>
               Consultoria e Assessoria Jurídica
@@ -198,7 +209,22 @@ export default function Home() {
         <div className={classes.home_bottom_title}>
           <h2 className={classes.home_bottom_title_label}>Sobre Nós</h2>
         </div>
-        <div className={classes.home_bottom_description}>O texto vai aqui</div>
+        <div className={classes.home_bottom_description}>
+          A Pessoal Administradora é empresa especialista na prestação de
+          <b>Serviços de Consultoria e Assessoria</b> para Condomínios, nas
+          áreas administrativas, financeiro-contábeis e jurídicas. Com sede na
+          Cidade de Fortaleza, somos uma empresa do ramo imobiliário atuando no
+          mercado de Consultoria e Administração de Condomínios há 25(vinte e
+          cinco) anos. Temos profissionais de alto gabarito que nos conferem um
+          elevado nível da qualidade de nossos serviços e a satisfação de nossos
+          clientes. 100% informatizada, detemos recursos e tecnologia para a
+          realização de nossos serviços, minimizando as perdas financeiras de
+          nossos clientes em decorrência de tempo/deslocamento. Através de nosso
+          sistema online de comunicação, associado a uma programação logística,
+          reduzimos em até 60% as tarefas, o tempo e o custo para a execução de
+          nossos serviços, o que nos possibilita atender em tempo real nossos
+          clientes.
+        </div>
         <div className={classes.home_bottom_parceiros}>
           <p>Parceiros</p>
           <div className={classes.home_bottom_parceiros_imgs}>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
-import { db } from "../../firebase";
-import Item from "../../components/Item";
-import classes from "../../styles/Condominium.module.css";
+import { db } from "../../../firebase";
+import Item from "../../../components/Item";
+import classes from "../../../styles/Condominium.module.css";
 
 export async function getServerSideProps(context) {
   const docRef = doc(db, "Condominiums", context.params.condId);
@@ -137,7 +137,10 @@ export default function Condominium(props) {
             ))
           )}
         </div>
-        <div className={classes.condominium_main_reserve}>
+        <div
+          className={classes.condominium_main_reserve}
+          style={{ display: dc ? "none" : "flex" }}
+        >
           <div className={classes.condominium_main_reserve_title}>
             <p>Solicitar Reserva</p>
           </div>
@@ -146,8 +149,8 @@ export default function Condominium(props) {
               <input
                 type="text"
                 className={classes.condominium_main_reserve_inputarea_input}
-                placeholder="E-mail"
-                maxLength={100}
+                placeholder="N° do Apartamento/Casa"
+                maxLength={50}
                 /*onChange={(e) => {
                   if (e.target.value === "") setLb("#fff");
                   else setLb("#2E4DA7");
@@ -159,7 +162,7 @@ export default function Condominium(props) {
               <input
                 type="text"
                 className={classes.condominium_main_reserve_inputarea_input}
-                placeholder="Descrição"
+                placeholder="Descrição (Ex: Reserva da piscina)"
                 maxLength={100}
                 /*onChange={(e) => {
                   if (e.target.value === "") setLb("#fff");
@@ -170,10 +173,34 @@ export default function Condominium(props) {
             </div>
             <div className={classes.condominium_main_reserve_inputarea}>
               <input
-                type="text"
+                type="number"
                 className={classes.condominium_main_reserve_inputarea_input}
-                placeholder="Data (Ex: 25/02/2001)"
-                maxLength={10}
+                placeholder="Dia"
+                maxLength={2}
+                /*onChange={(e) => {
+                  if (e.target.value === "") setLb("#fff");
+                  else setLb("#2E4DA7");
+                  setCode(e.target.value);
+                }}*/
+              />
+              /
+              <input
+                type="number"
+                className={classes.condominium_main_reserve_inputarea_input}
+                placeholder="Mês"
+                maxLength={2}
+                /*onChange={(e) => {
+                  if (e.target.value === "") setLb("#fff");
+                  else setLb("#2E4DA7");
+                  setCode(e.target.value);
+                }}*/
+              />
+              /
+              <input
+                type="number"
+                className={classes.condominium_main_reserve_inputarea_input}
+                placeholder="Ano"
+                maxLength={4}
                 /*onChange={(e) => {
                   if (e.target.value === "") setLb("#fff");
                   else setLb("#2E4DA7");
