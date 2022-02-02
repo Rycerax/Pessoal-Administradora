@@ -211,12 +211,12 @@ export default function Home() {
         </div>
         <div className={classes.home_bottom_description}>
           A Pessoal Administradora é empresa especialista na prestação de
-          <b>Serviços de Consultoria e Assessoria</b> para Condomínios, nas
-          áreas administrativas, financeiro-contábeis e jurídicas. Com sede na
-          Cidade de Fortaleza, somos uma empresa do ramo imobiliário atuando no
-          mercado de Consultoria e Administração de Condomínios há 25(vinte e
-          cinco) anos. Temos profissionais de alto gabarito que nos conferem um
-          elevado nível da qualidade de nossos serviços e a satisfação de nossos
+          Serviços de Consultoria e Assessoria para Condomínios, nas áreas
+          administrativas, financeiro-contábeis e jurídicas. Com sede na Cidade
+          de Fortaleza, somos uma empresa do ramo imobiliário atuando no mercado
+          de Consultoria e Administração de Condomínios há 25(vinte e cinco)
+          anos. Temos profissionais de alto gabarito que nos conferem um elevado
+          nível da qualidade de nossos serviços e a satisfação de nossos
           clientes. 100% informatizada, detemos recursos e tecnologia para a
           realização de nossos serviços, minimizando as perdas financeiras de
           nossos clientes em decorrência de tempo/deslocamento. Através de nosso
