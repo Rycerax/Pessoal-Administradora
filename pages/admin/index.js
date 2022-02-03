@@ -1,4 +1,15 @@
-import { useState } from "react";
+import { async } from "@firebase/util";
+import {
+  collection,
+  doc,
+  getDocs,
+  orderBy,
+  query,
+  setDoc,
+} from "firebase/firestore";
+import { useEffect, useState } from "react";
+import Item from "../../components/Item";
+import { db } from "../../firebase";
 import classes from "../../styles/Admin.module.css";
 
 export async function getStaticProps(context) {
@@ -15,8 +26,75 @@ export async function getStaticProps(context) {
 
 export default function Admin() {
   const [docs, setDocs] = useState([]);
-  const [sol, setSol] = useState([]);
+  const [soli, setSoli] = useState([]);
   const [conf, setConf] = useState([]);
+  const [desc, setDesc] = useState("");
+  const [cond, setCond] = useState("");
+  const [link, setLink] = useState("");
+  const [day, setDay] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+
+  const addDocument = async () => {
+    if (!desc || !cond || !link || !day || !month || !year) {
+      alert("Preencha todos os campos!");
+    } else {
+      await setDoc(doc(db, "Docs", `${desc + day + month + year + cond}`), {
+        desc,
+        cond,
+        day,
+        month,
+        year,
+        link,
+      });
+      alert("Documento adicionado com sucesso!");
+    }
+  };
+
+  useEffect(async () => {
+    const docsRef = collection(db, "Docs");
+    const soliRef = collection(db, "Soli");
+    const confRef = collection(db, "Conf");
+
+    const docsq = query(
+      docsRef,
+      orderBy("year", "desc"),
+      orderBy("month", "desc"),
+      orderBy("day", "desc")
+    );
+    const soliq = query(
+      soliRef,
+      orderBy("month", "desc"),
+      orderBy("day", "desc")
+    );
+    const confq = query(
+      confRef,
+      orderBy("month", "desc"),
+      orderBy("day", "desc")
+    );
+
+    const docsSnapshot = await getDocs(docsq);
+    const soliSnapshot = await getDocs(soliq);
+    const confSnapshot = await getDocs(confq);
+
+    const docsl = [];
+    docsSnapshot.forEach((doc) => {
+      docsl.push(doc.data());
+    });
+    setDocs(docsl);
+
+    const solil = [];
+    soliSnapshot.forEach((doc) => {
+      solil.push(doc.data());
+    });
+    setSoli(solil);
+
+    const confl = [];
+    confSnapshot.forEach((doc) => {
+      confl.push(doc.data());
+    });
+    setConf(confl);
+  }, []);
   return (
     <div className={classes.admin}>
       <div className={classes.admin_left}>
@@ -31,9 +109,15 @@ export default function Admin() {
               {!conf.length ? (
                 <p>Reservas não disponíveis :(</p>
               ) : (
-                conf.map((reserva) => {
-                  <p>reserva</p>;
-                })
+                conf.map((doc) => (
+                  <Item
+                    key={`${doc.desc}${doc.day}${doc.month}${doc.cond}`}
+                    desc={doc.desc}
+                    cond={doc.cond}
+                    date={`${doc.day}/${doc.month}/${new Date().getFullYear()}`}
+                    sl
+                  />
+                ))
               )}
             </div>
           </div>
@@ -46,30 +130,63 @@ export default function Admin() {
             <div
               className={classes.admin_left_reservas_solicitadas_content_items}
             >
-              {!sol.length ? (
+              {!soli.length ? (
                 <p>Reservas não disponíveis :(</p>
               ) : (
-                sol.map((reserva) => {
-                  <p>Reserva</p>;
-                })
+                soli.map((doc) => (
+                  <Item
+                    key={`${doc.desc}${doc.day}${doc.month}${doc.cond}`}
+                    desc={doc.desc}
+                    cond={doc.cond}
+                    date={`${doc.day}/${doc.month}/${new Date().getFullYear()}`}
+                    ap={doc.ap}
+                  />
+                ))
               )}
             </div>
           </div>
         </div>
-        <div className={classes.admin_left_add_reserva}>
-          <div className={classes.admin_left_add_reserva_title}>
-            <p>Confirmar Reserva</p>
+      </div>
+      <div className={classes.admin_mid} />
+      <div className={classes.admin_right}>
+        <div className={classes.admin_right_docs}>
+          <div className={classes.admin_right_docs_title}>
+            <p>Documentos</p>
           </div>
-          <div className={classes.admin_left_add_reserva_inputs}>
-            <div className={classes.admin_left_add_reserva_inputs_inputarea}>
-              <select style={{ marginRight: "10px" }}>
-                <option value="">Selecione uma área</option>
-                <option value="Salão de festas">Salão de festas</option>
-                <option value="Deck">Deck</option>
-                <option value="Piscina">Psiscina</option>
-              </select>
-              <select style={{ marginLeft: "10px" }}>
-                <option value="">Selecione o condomínio</option>
+          <dic className={classes.admin_right_docs_items}>
+            {!docs.length ? (
+              <p>Documentos não disponíveis :(</p>
+            ) : (
+              docs.map((doc) => (
+                <Item
+                  key={`${doc.desc}${doc.day}${doc.month}${doc.year}${doc.cond}`}
+                  desc={doc.desc}
+                  dc
+                  cond={doc.cond}
+                  date={`${doc.day}/${doc.month}/${doc.year}`}
+                />
+              ))
+            )}
+          </dic>
+        </div>
+        <div className={classes.admin_right_add_doc}>
+          <div className={classes.admin_right_add_doc_title}>
+            <p>Adicionar Documento</p>
+          </div>
+          <div className={classes.admin_right_add_doc_inputs}>
+            <div className={classes.admin_right_add_doc_inputs_inputarea}>
+              <input
+                type="text"
+                className={classes.admin_right_add_doc_inputs_inputarea_input}
+                placeholder="Descrição"
+                maxLength={50}
+                onChange={(e) => setDesc(e.target.value)}
+              />
+              <select
+                className={classes.admin_right_add_doc_inputs_inputarea_select}
+                onChange={(e) => setCond(e.target.value)}
+              >
+                <option value="">Condomínio</option>
                 <option value="BNE">Biene</option>
                 <option value="CGN">Cygnus</option>
                 <option value="CRS">Cristal II</option>
@@ -82,76 +199,57 @@ export default function Admin() {
                 <option value="ORLY">Orly</option>
                 <option value="PLT">Planalto</option>
                 <option value="RGC">Regina Coeli</option>
-                <option value="SOL">Sol do Atlântico</option>
+                <option value="SOL">Sol</option>
                 <option value="STL">Santa Lúcia</option>
                 <option value="STR">Strauss</option>
                 <option value="TMB">Tambaqui</option>
-                <option value="XAFY">Planalto</option>
+                <option value="XAFY">Xafy Ary</option>
               </select>
             </div>
-            <div className={classes.admin_left_add_reserva_inputs_inputarea}>
-              <select style={{ marginRight: "10px" }}>
-                <option value="">Dia</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
-              </select>
-              <select style={{ marginLeft: "10px" }}>
-                <option value="">Mês</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
+            <div className={classes.admin_right_add_doc_inputs_inputarea}>
+              <input
+                type="url"
+                className={classes.admin_right_add_doc_inputs_inputarea_input}
+                placeholder="link"
+                maxLength={500}
+                onChange={(e) => setLink(e.target.value)}
+              />
+            </div>
+            <div className={classes.admin_right_add_doc_inputs_inputarea}>
+              <input
+                type="number"
+                className={classes.admin_right_add_doc_inputs_inputarea_input}
+                placeholder="Dia"
+                maxLength={50}
+                onChange={(e) => setDay(e.target.value)}
+              />
+              /
+              <input
+                type="number"
+                className={classes.admin_right_add_doc_inputs_inputarea_input}
+                placeholder="Mês"
+                maxLength={50}
+                onChange={(e) => setMonth(e.target.value)}
+              />
+              /
+              <input
+                type="number"
+                className={classes.admin_right_add_doc_inputs_inputarea_input}
+                placeholder="Ano"
+                maxLength={50}
+                onChange={(e) => setYear(e.target.value)}
+              />
             </div>
           </div>
-          <div className={classes.admin_left_add_reserva_buttonarea}>
-            <div className={classes.admin_left_add_reserva_buttonarea_button}>
+          <div className={classes.admin_right_add_doc_buttonarea}>
+            <div
+              className={classes.admin_right_add_doc_buttonarea_button}
+              onClick={() => addDocument()}
+            >
               Adicionar
             </div>
           </div>
         </div>
-      </div>
-      <div className={classes.admin_mid} />
-      <div className={classes.admin_right}>
-        <div className={classes.admin_right_docs}></div>
-        <div className={classes.admin_right_add_doc}></div>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@
 }
 
 .item_dc:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .item_icon {
@@ -31,6 +31,24 @@
 }
 
 .item_desc {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-family: "Readex Pro", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.item_ap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-family: "Readex Pro", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.item_cond {
   display: flex;
   align-items: center;
   flex: 1;

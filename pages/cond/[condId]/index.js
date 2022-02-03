@@ -117,7 +117,7 @@ export default function Condominium(props) {
                 <Item
                   key={doc.docId}
                   id={doc.docId}
-                  description={doc.desc}
+                  desc={doc.desc}
                   date={doc.date}
                   dc={doc.dc}
                 />
@@ -159,17 +159,12 @@ export default function Condominium(props) {
               />
             </div>
             <div className={classes.condominium_main_reserve_inputarea}>
-              <input
-                type="text"
-                className={classes.condominium_main_reserve_inputarea_input}
-                placeholder="Descrição (Ex: Reserva da piscina)"
-                maxLength={100}
-                /*onChange={(e) => {
-                  if (e.target.value === "") setLb("#fff");
-                  else setLb("#2E4DA7");
-                  setCode(e.target.value);
-                }}*/
-              />
+              <select>
+                <option value="">Selecione uma área</option>
+                <option value="Salão de festas">Salão de festas</option>
+                <option value="Deck">Deck</option>
+                <option value="Piscina">Psiscina</option>
+              </select>
             </div>
             <div className={classes.condominium_main_reserve_inputarea}>
               <input
@@ -189,18 +184,6 @@ export default function Condominium(props) {
                 className={classes.condominium_main_reserve_inputarea_input}
                 placeholder="Mês"
                 maxLength={2}
-                /*onChange={(e) => {
-                  if (e.target.value === "") setLb("#fff");
-                  else setLb("#2E4DA7");
-                  setCode(e.target.value);
-                }}*/
-              />
-              /
-              <input
-                type="number"
-                className={classes.condominium_main_reserve_inputarea_input}
-                placeholder="Ano"
-                maxLength={4}
                 /*onChange={(e) => {
                   if (e.target.value === "") setLb("#fff");
                   else setLb("#2E4DA7");

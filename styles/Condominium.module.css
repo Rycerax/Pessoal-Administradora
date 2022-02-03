@@ -144,6 +144,19 @@
   font-family: "Readex Pro", sans-serif;
 }
 
+.condominium_main_reserve_inputarea > select {
+  margin: 0px 5px;
+  font-family: "Readex Pro", sans-serif;
+  width: 100%;
+  height: 40px;
+  border-radius: 7px;
+  border: none;
+}
+
+.condominium_main_reserve_inputarea > select:focus {
+  outline: none;
+}
+
 .condominium_main_reserve_inputarea_input {
   background: #fff;
   width: 100%;

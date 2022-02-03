@@ -2,8 +2,8 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .admin_left {
@@ -37,6 +37,13 @@
   justify-content: center;
 }
 
+.admin_left_reservas_confirmadas_content_items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0px 20px;
+}
+
 .admin_left_reservas_solicitadas {
   display: flex;
   flex-direction: column;
@@ -60,67 +67,11 @@
   justify-content: center;
 }
 
-.admin_left_add_reserva {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.admin_left_add_reserva_title {
-  margin-left: 20px;
-  color: #2e4da7;
-  font-family: "Readex Pro", sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.admin_left_add_reserva_inputs {
+.admin_left_reservas_solicitadas_content_items {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
-}
-
-.admin_left_add_reserva_inputs_inputarea {
-  display: flex;
-  height: 40px;
-  width: 350px;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-.admin_left_add_reserva_inputs_inputarea > select {
-  width: 200px;
-  box-shadow: 0 1px 5px 1px rgb(64 60 67 / 16%);
-  border-radius: 7px;
-  border: none;
-}
-
-.admin_left_add_reserva_inputs_inputarea > select:focus {
-  outline: none;
-}
-
-.admin_left_add_reserva_buttonarea {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.admin_left_add_reserva_buttonarea_button {
-  display: flex;
-  text-align: center;
-  background: #2e4da7;
-  border-radius: 7px;
-  color: #fff;
-  padding: 10px 15px;
-  margin-top: 10px;
-  cursor: pointer;
-  margin-right: 20px;
-  transition: all ease 0.3s;
-}
-
-.admin_left_add_reserva_buttonarea_button:hover {
-  filter: brightness(1.25);
+  margin: 0px 20px;
 }
 
 .admin_mid {
@@ -131,7 +82,122 @@
 
 .admin_right {
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   flex: 1;
+}
+
+.admin_right_docs {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  flex: 1;
+}
+
+.admin_right_docs_title {
+  display: flex;
+  min-width: 300px;
+  margin-left: 20px;
+  color: #2e4da7;
+  font-family: "Readex Pro", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.admin_right_docs_items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  padding: 0px 20px;
+}
+
+.admin_right_add_doc {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.admin_right_add_doc_title {
+  display: flex;
+  min-width: 300px;
+  margin-left: 20px;
+  color: #2e4da7;
+  font-family: "Readex Pro", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.admin_right_add_doc_inputs {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin_right_add_doc_inputs_inputarea {
+  display: flex;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  width: 85%;
+  min-height: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px 1px rgb(64 60 67 / 16%);
+}
+
+.admin_right_add_doc_inputs_inputarea_input {
+  display: flex;
+  font-family: "Readex Pro", sans-serif;
+  flex: 1;
+  font-size: 15px;
+  font-weight: 300;
+  border: none;
+}
+
+.admin_right_add_doc_inputs_inputarea_input:focus {
+  outline: none;
+}
+
+.admin_right_add_doc_inputs_inputarea_select {
+  display: flex;
+  font-family: "Readex Pro", sans-serif;
+  flex: 1;
+  font-size: 15px;
+  font-weight: 300;
+  border: none;
+}
+
+.admin_right_add_doc_inputs_inputarea_select:focus {
+  outline: none;
+}
+
+.admin_right_add_doc_buttonarea {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.admin_right_add_doc_buttonarea_button {
+  display: flex;
+  background: #2e4da7;
+  padding: 10px 15px;
+  border-radius: 7px;
+  color: #fff;
+  font-family: "Readex Pro", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  cursor: pointer;
+  box-shadow: 0 1px 5px 1px rgb(64 60 67 / 16%);
+  transition: all ease 0.3s;
+}
+
+.admin_right_add_doc_buttonarea_button:hover {
+  filter: brightness(1.25);
 }
