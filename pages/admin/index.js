@@ -3,6 +3,7 @@ import {
   collection,
   doc,
   getDocs,
+  onSnapshot,
   orderBy,
   query,
   setDoc,
@@ -25,6 +26,7 @@ export async function getStaticProps(context) {
 }
 
 export default function Admin() {
+  const [viewCond, setViewCond] = useState("BNE");
   const [docs, setDocs] = useState([]);
   const [soli, setSoli] = useState([]);
   const [conf, setConf] = useState([]);
@@ -52,48 +54,58 @@ export default function Admin() {
   };
 
   useEffect(async () => {
-    const docsRef = collection(db, "Docs");
-    const soliRef = collection(db, "Soli");
-    const confRef = collection(db, "Conf");
-
     const docsq = query(
-      docsRef,
+      collection(db, "Docs"),
       orderBy("year", "desc"),
       orderBy("month", "desc"),
       orderBy("day", "desc")
     );
+
+    const unsubDocs = onSnapshot(docsq, (docsSnapshot) => {
+      const docsl = [];
+      docsSnapshot.forEach((doc) => {
+        docsl.push(doc.data());
+      });
+      setDocs(docsl);
+    });
+
+    return unsubDocs;
+  }, []);
+
+  useEffect(() => {
     const soliq = query(
-      soliRef,
+      collection(db, "Soli"),
       orderBy("month", "desc"),
       orderBy("day", "desc")
     );
+
+    const unsubSoli = onSnapshot(soliq, (soliSnapshot) => {
+      const solil = [];
+      soliSnapshot.forEach((doc) => {
+        solil.push(doc.data());
+      });
+      setSoli(solil);
+    });
+
+    return unsubSoli;
+  }, []);
+
+  useEffect(() => {
     const confq = query(
-      confRef,
+      collection(db, "Conf"),
       orderBy("month", "desc"),
       orderBy("day", "desc")
     );
 
-    const docsSnapshot = await getDocs(docsq);
-    const soliSnapshot = await getDocs(soliq);
-    const confSnapshot = await getDocs(confq);
-
-    const docsl = [];
-    docsSnapshot.forEach((doc) => {
-      docsl.push(doc.data());
+    const unsubConf = onSnapshot(confq, (confSnapshot) => {
+      const confl = [];
+      confSnapshot.forEach((doc) => {
+        confl.push(doc.data());
+      });
+      setConf(confl);
     });
-    setDocs(docsl);
 
-    const solil = [];
-    soliSnapshot.forEach((doc) => {
-      solil.push(doc.data());
-    });
-    setSoli(solil);
-
-    const confl = [];
-    confSnapshot.forEach((doc) => {
-      confl.push(doc.data());
-    });
-    setConf(confl);
+    return unsubConf;
   }, []);
   return (
     <div className={classes.admin}>
@@ -114,8 +126,11 @@ export default function Admin() {
                     key={`${doc.desc}${doc.day}${doc.month}${doc.cond}`}
                     desc={doc.desc}
                     cond={doc.cond}
-                    date={`${doc.day}/${doc.month}/${new Date().getFullYear()}`}
+                    day={doc.day}
+                    month={doc.month}
+                    year={new Date().getFullYear()}
                     sl
+                    ad
                   />
                 ))
               )}
@@ -138,8 +153,11 @@ export default function Admin() {
                     key={`${doc.desc}${doc.day}${doc.month}${doc.cond}`}
                     desc={doc.desc}
                     cond={doc.cond}
-                    date={`${doc.day}/${doc.month}/${new Date().getFullYear()}`}
+                    day={doc.day}
+                    month={doc.month}
+                    year={new Date().getFullYear()}
                     ap={doc.ap}
+                    ad
                   />
                 ))
               )}
@@ -152,20 +170,54 @@ export default function Admin() {
         <div className={classes.admin_right_docs}>
           <div className={classes.admin_right_docs_title}>
             <p>Documentos</p>
+            <select
+              className={classes.admin_right_add_doc_inputs_inputarea_select}
+              onChange={(e) => setViewCond(e.target.value)}
+              style={{
+                marginLeft: "15px",
+                marginRight: "15px",
+                height: "35px",
+                borderRadius: "7px",
+                boxShadow: "0 1px 5px 1px rgb(64 60 67 / 16%)",
+              }}
+            >
+              <option value="BNE">Biene</option>
+              <option value="CGN">Cygnus</option>
+              <option value="CRS">Cristal II</option>
+              <option value="ECV">Ecovillage Maranguape</option>
+              <option value="ETL">Etóile</option>
+              <option value="GPL">Grand Place</option>
+              <option value="JNP">Jean Piaget</option>
+              <option value="LIZ">Liz</option>
+              <option value="MDC">Medical Center</option>
+              <option value="ORLY">Orly</option>
+              <option value="PLT">Planalto</option>
+              <option value="RGC">Regina Coeli</option>
+              <option value="SOL">Sol</option>
+              <option value="STL">Santa Lúcia</option>
+              <option value="STR">Strauss</option>
+              <option value="TMB">Tambaqui</option>
+              <option value="XAFY">Xafy Ary</option>
+            </select>
           </div>
           <dic className={classes.admin_right_docs_items}>
             {!docs.length ? (
               <p>Documentos não disponíveis :(</p>
             ) : (
-              docs.map((doc) => (
-                <Item
-                  key={`${doc.desc}${doc.day}${doc.month}${doc.year}${doc.cond}`}
-                  desc={doc.desc}
-                  dc
-                  cond={doc.cond}
-                  date={`${doc.day}/${doc.month}/${doc.year}`}
-                />
-              ))
+              docs.map((doc) =>
+                doc.cond === viewCond ? (
+                  <Item
+                    key={`${doc.desc}${doc.day}${doc.month}${doc.year}${doc.cond}`}
+                    desc={doc.desc}
+                    dc
+                    cond={doc.cond}
+                    day={doc.day}
+                    month={doc.month}
+                    year={doc.year}
+                    ad
+                  />
+                ) : null
+              )
             )}
           </dic>
         </div>

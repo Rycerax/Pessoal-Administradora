@@ -1,8 +1,51 @@
+import { deleteDoc, doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 import classes from "../styles/Item.module.css";
 
 export default function Item(props) {
+  const deleteItem = async () => {
+    if (props.dc) {
+      console.log(
+        props.desc + props.day + props.month + props.year + props.cond
+      );
+      await deleteDoc(
+        doc(
+          db,
+          "Docs",
+          props.desc + props.day + props.month + props.year + props.cond
+        )
+      );
+    } else if (props.sl) {
+      console.log(props.desc + props.day + props.month + props.cond);
+      await deleteDoc(
+        doc(db, "Conf", props.desc + props.day + props.month + props.cond)
+      );
+    } else
+      await deleteDoc(
+        doc(db, "Soli", props.desc + props.day + props.month + props.cond)
+      );
+  };
+
+  const confirmarReserva = async () => {
+    await deleteDoc(
+      doc(db, "Soli", props.desc + props.day + props.month + props.cond)
+    );
+    await setDoc(
+      doc(db, "Conf", props.desc + props.day + props.month + props.cond),
+      {
+        desc: props.desc,
+        day: props.day,
+        month: props.month,
+        cond: props.cond,
+      }
+    );
+  };
+
   return (
-    <div className={props.dc ? classes.item_dc : classes.item}>
+    <div
+      className={props.dc ? classes.item_dc : classes.item}
+      onClick={() => (props.dc ? window.open(props.link, "_blank") : null)}
+    >
       <div className={classes.item_icon}>
         {props.dc ? (
           <svg
@@ -54,8 +97,36 @@ export default function Item(props) {
         <p>{props.cond}</p>
       </div>
       <div className={classes.item_date}>
-        <p>{props.date}</p>
+        <p>{`${props.day}/${props.month}/${props.year}`}</p>
       </div>
+      {props.ad && !props.sl && !props.dc ? (
+        <div className={classes.item_accept} onClick={() => confirmarReserva()}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height={25}
+            viewBox="0 0 24 24"
+            width={25}
+            fill="green"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg>
+        </div>
+      ) : null}
+      {props.ad ? (
+        <div className={classes.item_delete} onClick={() => deleteItem()}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height={25}
+            viewBox="0 0 24 24"
+            width={25}
+            fill="red"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z" />
+          </svg>
+        </div>
+      ) : null}
     </div>
   );
 }

@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  orderBy,
+  query,
+  setDoc,
+  where,
+} from "firebase/firestore";
 import { db } from "../../../firebase";
 import Item from "../../../components/Item";
 import classes from "../../../styles/Condominium.module.css";
@@ -10,18 +19,31 @@ export async function getServerSideProps(context) {
 
   if (docSnap.exists()) {
     const data = {
-      ImageUrl: docSnap.data().ImageUrl,
+      ImageUrl: docSnap.data().imageUrl,
       Docs: [],
       Reservas: [],
+      cond: context.params.condId,
     };
+
     const docsSnapshot = await getDocs(
-      collection(db, "Condominiums", context.params.condId, "Docs")
+      query(
+        collection(db, "Docs"),
+        where("cond", "==", context.params.condId),
+        orderBy("year", "desc"),
+        orderBy("month", "desc"),
+        orderBy("day", "desc")
+      )
     );
     docsSnapshot.forEach((doc) => {
       data.Docs.push(doc.data());
     });
     const reservasSnapshot = await getDocs(
-      collection(db, "Condominiums", context.params.condId, "Reservas")
+      query(
+        collection(db, "Conf"),
+        where("cond", "==", context.params.condId),
+        orderBy("month", "desc"),
+        orderBy("day", "desc")
+      )
     );
     reservasSnapshot.forEach((res) => {
       data.Reservas.push(res.data());
@@ -39,10 +61,25 @@ export async function getServerSideProps(context) {
 export default function Condominium(props) {
   const [dc, setDc] = useState(true);
   const [dt, setDt] = useState(false);
+  const [ap, setAp] = useState("");
+  const [desc, setDesc] = useState("");
+  const [day, setDay] = useState("");
+  const [month, setMonth] = useState("");
 
-  useEffect(() => {
-    console.log(props.Docs);
-  }, []);
+  const solicitarReserva = async () => {
+    if (!ap || !desc || !day || !month) {
+      alert("Preencha todos os campos!");
+    } else {
+      await setDoc(doc(db, "Soli", desc + day + month + props.cond), {
+        ap,
+        desc,
+        day,
+        month,
+        cond: props.cond,
+      });
+      alert("Reserva solicitada com sucesso!");
+    }
+  };
 
   return (
     <div className={classes.condominium}>
@@ -116,10 +153,12 @@ export default function Condominium(props) {
               props.Docs.map((doc) => (
                 <Item
                   key={doc.docId}
-                  id={doc.docId}
                   desc={doc.desc}
-                  date={doc.date}
-                  dc={doc.dc}
+                  day={doc.day}
+                  month={doc.month}
+                  year={doc.year}
+                  dc
+                  link={doc.link}
                 />
               ))
             )
@@ -129,10 +168,12 @@ export default function Condominium(props) {
             props.Reservas.map((doc) => (
               <Item
                 key={doc.docId}
-                id={doc.docId}
-                description={doc.desc}
+                desc={doc.desc}
+                day={doc.day}
+                month={doc.month}
+                year={new Date().getFullYear()}
                 date={doc.date}
-                dc={doc.dc}
+                sl
               />
             ))
           )}
@@ -151,15 +192,11 @@ export default function Condominium(props) {
                 className={classes.condominium_main_reserve_inputarea_input}
                 placeholder="N° do Apartamento/Casa"
                 maxLength={50}
-                /*onChange={(e) => {
-                  if (e.target.value === "") setLb("#fff");
-                  else setLb("#2E4DA7");
-                  setCode(e.target.value);
-                }}*/
+                onChange={(e) => setAp(e.target.value)}
               />
             </div>
             <div className={classes.condominium_main_reserve_inputarea}>
-              <select>
+              <select onChange={(e) => setDesc(e.target.value)}>
                 <option value="">Selecione uma área</option>
                 <option value="Salão de festas">Salão de festas</option>
                 <option value="Deck">Deck</option>
@@ -172,11 +209,7 @@ export default function Condominium(props) {
                 className={classes.condominium_main_reserve_inputarea_input}
                 placeholder="Dia"
                 maxLength={2}
-                /*onChange={(e) => {
-                  if (e.target.value === "") setLb("#fff");
-                  else setLb("#2E4DA7");
-                  setCode(e.target.value);
-                }}*/
+                onChange={(e) => setDay(e.target.value)}
               />
               /
               <input
@@ -184,16 +217,15 @@ export default function Condominium(props) {
                 className={classes.condominium_main_reserve_inputarea_input}
                 placeholder="Mês"
                 maxLength={2}
-                /*onChange={(e) => {
-                  if (e.target.value === "") setLb("#fff");
-                  else setLb("#2E4DA7");
-                  setCode(e.target.value);
-                }}*/
+                onChange={(e) => setMonth(e.target.value)}
               />
             </div>
           </div>
           <div className={classes.condominium_main_reserve_button_area}>
-            <div className={classes.condominium_main_reserve_button}>
+            <div
+              className={classes.condominium_main_reserve_button}
+              onClick={() => solicitarReserva()}
+            >
               Solicitar
             </div>
           </div>

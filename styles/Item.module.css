@@ -66,3 +66,31 @@
   font-size: 15px;
   font-weight: 300;
 }
+
+.item_accept {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.item_accept:hover {
+  transform: scale(1.05);
+}
+
+.item_delete {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.item_delete:hover {
+  transform: scale(1.05);
+}
