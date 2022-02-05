@@ -1,8 +1,6 @@
-import { async } from "@firebase/util";
 import {
   collection,
   doc,
-  getDocs,
   onSnapshot,
   orderBy,
   query,
