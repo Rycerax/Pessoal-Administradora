@@ -212,6 +212,7 @@ export default function Admin() {
                     day={doc.day}
                     month={doc.month}
                     year={doc.year}
+                    link={doc.link}
                     ad
                   />
                 ) : null

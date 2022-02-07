@@ -15,6 +15,11 @@ export default function Home() {
     <div className={classes.home}>
       <Head>
         <title>Pessoal Administradora</title>
+        <script
+          data-ad-client="ca-pub-8983752127051167"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
       </Head>
       <div className={classes.home_top}>
         <div className={classes.home_top_image} />

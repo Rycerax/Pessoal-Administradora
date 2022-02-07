@@ -42,11 +42,11 @@ export default function Item(props) {
   };
 
   return (
-    <div
-      className={props.dc ? classes.item_dc : classes.item}
-      onClick={() => (props.dc ? window.open(props.link, "_blank") : null)}
-    >
-      <div className={classes.item_icon}>
+    <div className={props.dc ? classes.item_dc : classes.item}>
+      <div
+        className={classes.item_icon}
+        onClick={() => (props.dc ? window.open(props.link, "_blank") : null)}
+      >
         {props.dc ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -87,16 +87,28 @@ export default function Item(props) {
           </svg>
         )}
       </div>
-      <div className={classes.item_desc}>
+      <div
+        className={classes.item_desc}
+        onClick={() => (props.dc ? window.open(props.link, "_blank") : null)}
+      >
         <p>{props.desc}</p>
       </div>
-      <div className={classes.item_ap}>
+      <div
+        className={classes.item_ap}
+        onClick={() => (props.dc ? window.open(props.link, "_blank") : null)}
+      >
         <p>{props.ap}</p>
       </div>
-      <div className={classes.item_cond}>
+      <div
+        className={classes.item_cond}
+        onClick={() => (props.dc ? window.open(props.link, "_blank") : null)}
+      >
         <p>{props.cond}</p>
       </div>
-      <div className={classes.item_date}>
+      <div
+        className={classes.item_date}
+        onClick={() => (props.dc ? window.open(props.link, "_blank") : null)}
+      >
         <p>{`${props.day}/${props.month}/${props.year}`}</p>
       </div>
       {props.ad && !props.sl && !props.dc ? (
