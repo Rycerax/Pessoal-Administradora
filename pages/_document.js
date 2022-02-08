@@ -6,9 +6,9 @@ export default function Document() {
       <Head>
         <title>Pessoal Administradora</title>
         <script
-          data-ad-client="ca-pub-8983752127051167"
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8983752127051167"
+          crossorigin="anonymous"
         ></script>
       </Head>
       <body>
