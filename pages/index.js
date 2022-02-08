@@ -172,35 +172,100 @@ export default function Home() {
         </div>
       </div>
       <div className={classes.home_mid}>
-        <div className={classes.home_mid_title}>
-          <h2 className={classes.home_mid_title_label}>Nossos Serviços</h2>
+        <div className={classes.home_mid_left}>
+          <div className={classes.home_mid_title}>
+            <h2 className={classes.home_mid_title_label}>Nossos Serviços</h2>
+          </div>
+          <div className={classes.home_mid_container}>
+            <div className={classes.home_mid_services1}>
+              <div
+                className={classes.home_mid_service}
+                style={{ margin: "55px" }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enableBackground="new 0 0 24 24"
+                  height={35}
+                  viewBox="0 0 24 24"
+                  width={35}
+                  fill="#070b36"
+                >
+                  <g>
+                    <rect fill="none" height="24" width="24" />
+                  </g>
+                  <g>
+                    <path d="M17,11V3H7v4H3v14h8v-4h2v4h8V11H17z M7,19H5v-2h2V19z M7,15H5v-2h2V15z M7,11H5V9h2V11z M11,15H9v-2h2V15z M11,11H9V9h2 V11z M11,7H9V5h2V7z M15,15h-2v-2h2V15z M15,11h-2V9h2V11z M15,7h-2V5h2V7z M19,19h-2v-2h2V19z M19,15h-2v-2h2V15z" />
+                  </g>
+                </svg>
+                <h1 className={classes.home_mid_service_label}>
+                  Gestão Profissional de Condomínios
+                </h1>
+              </div>
+              <div
+                className={classes.home_mid_service}
+                style={{ margin: "55px" }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height={35}
+                  viewBox="0 0 24 24"
+                  width={35}
+                  fill="#070b36"
+                >
+                  <path d="M0 0h24v24H0V0z" fill="none" />
+                  <path d="M14 2H4v20h16V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                </svg>
+                <h1 className={classes.home_mid_service_label}>
+                  Disponibilização de Documentos Importantes
+                </h1>
+              </div>
+            </div>
+            <div className={classes.home_mid_services2}>
+              <div
+                className={classes.home_mid_service}
+                style={{ margin: "55px" }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height={35}
+                  viewBox="0 0 24 24"
+                  width={35}
+                  fill="#070b36"
+                >
+                  <path d="M0 0h24v24H0V0z" fill="none" />
+                  <path d="M16.53 11.06L15.47 10l-4.88 4.88-2.12-2.12-1.06 1.06L10.59 17l5.94-5.94zM21 3h-3V1h-2v2H8V1H6v2H3v18h18V3zm-2 16H5V8h14v11z" />
+                </svg>
+                <h1 className={classes.home_mid_service_label}>
+                  Reserva Digital de Áreas Comuns
+                </h1>
+              </div>
+              <div
+                className={classes.home_mid_service}
+                style={{ margin: "55px" }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enable-background="new 0 0 24 24"
+                  height={35}
+                  viewBox="0 0 24 24"
+                  width={35}
+                  fill="#070b36"
+                >
+                  <g>
+                    <rect fill="none" height="24" width="24" />
+                  </g>
+                  <g>
+                    <path d="M13,19V7.83c0.85-0.3,1.53-0.98,1.83-1.83H18l-2.78,6.49c-0.17,0.39-0.23,0.84-0.11,1.25c0.39,1.3,1.76,2.26,3.39,2.26 s3.01-0.96,3.39-2.26c0.12-0.41,0.06-0.86-0.11-1.25L19,6h1c0.55,0,1-0.45,1-1s-0.45-1-1-1h-5.17C14.42,2.83,13.31,2,12,2 S9.58,2.83,9.17,4L4,4C3.45,4,3,4.45,3,5c0,0.55,0.45,1,1,1h1l-2.78,6.49c-0.17,0.39-0.23,0.84-0.11,1.25 C2.49,15.04,3.87,16,5.5,16s3.01-0.96,3.39-2.26c0.12-0.41,0.06-0.86-0.11-1.25L6,6h3.17c0.3,0.85,0.98,1.53,1.83,1.83V19 M11,19H3 c-0.55,0-1,0.45-1,1s0.45,1,1,1h18c0.55,0,1-0.45,1-1s-0.45-1-1-1h-8 M20.37,13h-3.74l1.87-4.36L20.37,13z M7.37,13H3.63L5.5,8.64 L7.37,13z M12,6c-0.55,0-1-0.45-1-1c0-0.55,0.45-1,1-1s1,0.45,1,1C13,5.55,12.55,6,12,6z" />
+                  </g>
+                </svg>
+                <h1 className={classes.home_mid_service_label}>
+                  Consultoria e Assessoria Jurídica
+                </h1>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className={classes.home_mid_services}>
-          <div className={classes.home_mid_service}>
-            <Image src={"/ap.svg"} width={50} height={50} alt="Condomínios" />
-            <h1 className={classes.home_mid_service_label}>
-              Gestão Profissional de Condomínios
-            </h1>
-          </div>
-          <div className={classes.home_mid_service}>
-            <Image src={"/dc.svg"} width={50} height={50} alt="Documentos" />
-            <h1 className={classes.home_mid_service_label}>
-              Disponibilização de Documentos
-            </h1>
-          </div>
-          <div className={classes.home_mid_service}>
-            <Image src={"/dt.svg"} width={50} height={50} alt="Eventos" />
-            <h1 className={classes.home_mid_service_label}>
-              Reserva de Áreas Comuns
-            </h1>
-          </div>
-          <div className={classes.home_mid_service}>
-            <Image src={"/bl.svg"} width={50} height={50} alt="Acessoria" />
-            <h1 className={classes.home_mid_service_label}>
-              Consultoria e Assessoria Jurídica
-            </h1>
-          </div>
-        </div>
+        <div className={classes.home_mid_right} />
       </div>
       <div className={classes.home_bottom}>
         <div className={classes.home_bottom_title}>
